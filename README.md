@@ -1,6 +1,6 @@
-# EzMetaServer
+# Alambic
 
-EzMetaServer is a comprehensive microservices-based platform for biological metadata processing, combining natural language processing (NLP) capabilities with metadata fetching from NCBI databases. This system provides a unified API gateway that manages two core services: a NLP service for entity recognition in biomedical text and a metadata fetch service that retrieves structured data from biological databases.
+**Alambic** is a comprehensive microservices-based platform for biological metadata processing, combining natural language processing (NLP) capabilities with metadata fetching from NCBI databases. This system provides a unified API gateway that manages two core services: a NLP service for entity recognition in biomedical text and a metadata fetch service that retrieves structured data from biological databases.
 
 ## Table of Contents
 
@@ -16,10 +16,10 @@ EzMetaServer is a comprehensive microservices-based platform for biological meta
 
 ## Overview
 
-EzMetaServer combines two powerful services into a unified platform:
+**Alambic** combines two powerful services into a unified platform:
 
-1. **EzMetaFetch** - Retrieves metadata from NCBI databases (SRA, BioSample, etc.) using the NCBI EUtils API
-2. **EzMetaNLP** - Processes biomedical text to identify named entities such as genes, diseases, species, cell lines, variants, and chemicals
+1. **Fetch service** - Retrieves metadata from NCBI databases (SRA, BioSample, etc.) using the NCBI EUtils API
+2. **NLP** - Processes biomedical text to identify named entities such as genes, diseases, species, cell lines, variants, and chemicals
 
 These services are exposed through a REST API gateway, making it easy to integrate biological metadata processing into your research or application workflows.
 
@@ -35,7 +35,7 @@ All components are containerized using Docker for ease of deployment and scalabi
 
 ## Services
 
-### EzMetaDump (Port 8001)
+### AlambicDump (Port 8001)
 
 The metadata fetching service provides functionality to:
 
@@ -46,7 +46,7 @@ The metadata fetching service provides functionality to:
 
 The service is built with FastAPI and provides both synchronous and asynchronous endpoints for efficient processing of metadata requests.
 
-### EzMetaNLP (Port 8000)
+### AlambicNLP (Port 8000)
 
 The NLP service uses advanced biomedical language models to:
 
@@ -64,7 +64,7 @@ The NLP service uses advanced biomedical language models to:
 
 1. Clone the repository:
    ```commandline
-   git clone https://github.com/yourusername/ezmetaserver.git
+   git clone https://github.com/shitohana/Alambic.git
    cd ezmetaserver
    ```
 
@@ -149,18 +149,18 @@ curl -X POST "http://localhost:9090/api/v1/nlp/process" \
 
 Interactive API documentation is available at:
 
-- EzMetaDump API: http://localhost:9090/api/v1/dump/docs
-- EzMetaNLP API: http://localhost:9090/api/v1/nlp/docs
+- AlambicDump API: http://localhost:9090/api/v1/dump/docs
+- AlambicNLP API: http://localhost:9090/api/v1/nlp/docs
 
 ### Key Endpoints
 
-#### EzMetaDump Service
+#### AlambicDump Service
 
 - `POST /api/v1/dump/fetch` - Fetch metadata from NCBI databases
 - `GET /api/v1/dump/peek` - Check record availability in NCBI databases
 - `GET /api/v1/dump/health` - Check the health status of the dump service
 
-#### EzMetaNLP Service
+#### AlambicNLP Service
 
 - `POST /api/v1/nlp/process` - Process text to identify named entities
 - `GET /api/v1/nlp/health` - Check the health status of the NLP service
@@ -181,14 +181,6 @@ Modify `nginx/nginx.conf` to adjust routing, rate limiting, or add additional se
 3. **Integration with Analysis Pipelines**: Use as a component in bioinformatics workflows to augment raw data with contextual information.
 
 4. **Metadata Standardization**: Extract entities from free-text descriptions and connect them to standard database identifiers.
-
-## Scaling
-
-For production deployments:
-- Consider using Kubernetes for orchestration
-- Add a Redis cache to reduce API calls to NCBI
-- Implement a dedicated database for storing processed results
-- Deploy multiple instances of each service behind a load balancer
 
 ## License
 
