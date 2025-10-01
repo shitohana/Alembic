@@ -1,6 +1,6 @@
-# Alambic
+# Alembic
 
-**Alambic** is a comprehensive microservices-based platform for biological metadata processing, combining natural language processing (NLP) capabilities with metadata fetching from NCBI databases. This system provides a unified API gateway that manages two core services: a NLP service for entity recognition in biomedical text and a metadata fetch service that retrieves structured data from biological databases.
+**Alembic** is a comprehensive microservices-based platform for biological metadata processing, combining natural language processing (NLP) capabilities with metadata fetching from NCBI databases. This system provides a unified API gateway that manages two core services: a NLP service for entity recognition in biomedical text and a metadata fetch service that retrieves structured data from biological databases.
 
 ## Table of Contents
 
@@ -16,7 +16,7 @@
 
 ## Overview
 
-**Alambic** combines two powerful services into a unified platform:
+**Alembic** combines two powerful services into a unified platform:
 
 1. **Fetch service** - Retrieves metadata from NCBI databases (SRA, BioSample, etc.) using the NCBI EUtils API
 2. **NLP** - Processes biomedical text to identify named entities such as genes, diseases, species, cell lines, variants, and chemicals
@@ -35,7 +35,7 @@ All components are containerized using Docker for ease of deployment and scalabi
 
 ## Services
 
-### AlambicDump (Port 8001)
+### AlembicDump (Port 8001)
 
 The metadata fetching service provides functionality to:
 
@@ -46,7 +46,7 @@ The metadata fetching service provides functionality to:
 
 The service is built with FastAPI and provides both synchronous and asynchronous endpoints for efficient processing of metadata requests.
 
-### AlambicNLP (Port 8000)
+### AlembicNLP (Port 8000)
 
 The NLP service uses advanced biomedical language models to:
 
@@ -64,7 +64,7 @@ The NLP service uses advanced biomedical language models to:
 
 1. Clone the repository:
    ```commandline
-   git clone https://github.com/shitohana/Alambic.git
+   git clone https://github.com/shitohana/Alembic.git
    cd ezmetaserver
    ```
 
@@ -149,18 +149,18 @@ curl -X POST "http://localhost:9090/api/v1/nlp/process" \
 
 Interactive API documentation is available at:
 
-- AlambicDump API: http://localhost:9090/api/v1/dump/docs
-- AlambicNLP API: http://localhost:9090/api/v1/nlp/docs
+- AlembicDump API: http://localhost:9090/api/v1/dump/docs
+- AlembicNLP API: http://localhost:9090/api/v1/nlp/docs
 
 ### Key Endpoints
 
-#### AlambicDump Service
+#### AlembicDump Service
 
 - `POST /api/v1/dump/fetch` - Fetch metadata from NCBI databases
 - `GET /api/v1/dump/peek` - Check record availability in NCBI databases
 - `GET /api/v1/dump/health` - Check the health status of the dump service
 
-#### AlambicNLP Service
+#### AlembicNLP Service
 
 - `POST /api/v1/nlp/process` - Process text to identify named entities
 - `GET /api/v1/nlp/health` - Check the health status of the NLP service
